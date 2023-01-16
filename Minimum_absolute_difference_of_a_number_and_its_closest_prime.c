@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main()
+{
+    int n,c,j,k,t1,t2;
+    scanf("%d",&n);
+    for(j=n;j>2;j--)
+    {
+        c=0;
+        for(k=2;k<j;k++)
+        {
+            if(j%k==0)
+            {
+                c=1;
+                break;
+            }
+        }
+        if(c==0)
+        {
+            t1=j;
+            break;
+        }
+    }
+    for(j=n;j<(n+100);j++)
+    {
+        c=0;
+        for(k=2;k<j;k++)
+        {
+            if(j%k==0)
+            {
+                c=1;
+                break;
+            }
+        }
+        if(c==0)
+        {
+            t2=j;
+            break;
+        }
+    }
+    if((n-t1)<=(t2-n))
+    {
+        printf("%d
+",n-t1);                         
+    }
+    else
+    {
+        printf("%d
+",t2-n);
+    }
+}

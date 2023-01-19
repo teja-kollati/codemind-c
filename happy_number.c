@@ -1,13 +1,13 @@
 #include<stdio.h>
 int main()
 {
-    int n,r,s,a;
+    int n,a,s,r;
     scanf("%d",&n);
     a=n;
-    while(a>0)
+    while(a!=0)
     {
         s=0;
-        while(a>0)
+        while(a!=0)
         {
             r=a%10;
             s=s+r*r;
@@ -19,11 +19,7 @@ int main()
         }
     }
     if(s==1 || s==7)
-    {
-        printf("True");
-    }
+    printf("True");
     else
-    {
-        printf("False");
-    }
+    printf("False");
 }

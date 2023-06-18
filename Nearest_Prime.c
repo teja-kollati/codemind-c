@@ -1,56 +1,42 @@
 #include<stdio.h>
-int main()
-{
-    int t,i;
+int isprime(int n){
+    for(int i = 2; i < n/2 + 1; i++){
+        if(n % i == 0){
+            return -1;
+            break;
+        }
+    }
+    return 1;
+}
+int nearestprime(int n){
+    int n1 = n - 1;
+    int n2 = n + 1;
+    while(1){
+        if(isprime(n) == 1){
+            return n;
+            break;
+        }
+        if(isprime(n1) == 1){
+            return n1;
+            break;
+        }
+        if(isprime(n2) == 1){
+            return n2;
+            break;
+        }
+        n1--;
+        n2++;
+    }
+}
+int main(){
+    int t;
     scanf("%d",&t);
-    for(i=1;i<=t;i++)
-    {
-        int n,c,j,k,t1,t2;
+    while(t != 0){
+        int n;
         scanf("%d",&n);
-        for(j=n;j>2;j--)
-        {
-            c=0;
-            for(k=2;k<j;k++)
-            {
-                if(j%k==0)
-                {
-                    c=1;
-                    break;
-                }
-            }
-            if(c==0)
-            {
-                t1=j;
-                break;
-            }
-        }
-        for(j=n;j<(n+100);j++)
-        {
-            c=0;
-            for(k=2;k<j;k++)
-            {
-                if(j%k==0)
-                {
-                    c=1;
-                    break;
-                }
-            }
-            if(c==0)
-            {
-                t2=j;
-                break;
-            }
-        }
-        if((n-t1)<=(t2-n))
-        {
-            printf("%d
-",t1);                         
-        }
-        else
-        {
-            printf("%d
-",t2);
-        }
-        
+        int nearprime = nearestprime(n);
+        printf("%d
+",nearprime);
+        t--;
     }
 }

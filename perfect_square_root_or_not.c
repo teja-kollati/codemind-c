@@ -1,16 +1,19 @@
 #include<stdio.h>
-#include<math.h>
-int main()
-{
-    int n,a;
+int isperfectsquare(int n){
+    for(int i = 1; i <= n/2; i++){
+        if(i * i == n){
+            return 1;
+        }
+    }
+    return -1;
+}
+int main(){
+    int n;
     scanf("%d",&n);
-    a=sqrt(n);
-    if(a*a==n)
-    {
+    if(isperfectsquare(n) == 1){
         printf("True");
     }
-    else
-    {
+    else{
         printf("False");
     }
 }

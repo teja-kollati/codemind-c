@@ -1,43 +1,29 @@
 #include<stdio.h>
-int main()
-{
-    int n,c=0;
+int isugly(int n){
+    while(n != 1){
+        if(n % 2 == 0){
+            n /= 2;
+        } 
+        else if(n % 3 == 0){
+            n /= 3;
+        }
+        else if(n % 5 == 0){
+            n /= 5;
+        }
+        else {
+            return -1;
+            break;
+        }
+    }
+    return 1;
+}
+int main(){
+    int n;
     scanf("%d",&n);
-    if(n>0)
-    {
-        while(n!=0)
-        {
-            if(n%2==0)
-            {
-                n=n/2;
-            }
-            else if(n%3==0)
-            {
-                n=n/3;
-            }
-            else if(n%5==0)
-            {
-                n=n/5;
-            }
-            else
-            {
-                c++;break;
-            }
-        }
+    if(isugly(n) == 1){
+        printf("Ugly Number");
     }
-    if(c>0)
-    {
-        if(n==1)
-        {
-            printf("Ugly Number");
-        }
-        else
-        {
-            printf("Not Ugly Number");
-        }
-    }
-    else
-    {
+    else{
         printf("Not Ugly Number");
     }
 }

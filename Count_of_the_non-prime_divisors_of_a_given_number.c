@@ -1,26 +1,23 @@
 #include<stdio.h>
-int main()
-{
-    int n,i,j,c1,c2=1;
+int isprime(int n){
+    for(int i = 2; i < n/2 + 1; i++){
+        if(n%i == 0){
+            return 0;
+            break;
+        }
+    }
+    return 1;
+}
+int main(){
+    int n;
     scanf("%d",&n);
-    for(i=1;i<=n;i++)
-    {
-        c1=0;
-        if(n%i==0)
-        {
-            for(j=1;j<=i;j++)
-            {
-                if(i%j==0)
-                {
-                    c1++;
-                    if(c1>2)
-                    {
-                        c2++;
-                        break;
-                    }
-                }
+    int count = 1;
+    for(int i = 2; i <= n; i++){
+        if(n % i == 0){
+            if(isprime(i) == 0){
+                count++;
             }
         }
     }
-    printf("%d",c2);
+    printf("%d",count);
 }

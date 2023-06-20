@@ -1,16 +1,14 @@
 #include<stdio.h>
-int main()
-{
-    int n,r,l=0;
+int main(){
+    int n;
     scanf("%d",&n);
-    while(n!=0)
-    {
-        r=n%10;
-        if(l<r)
-        {
-            l=r;
+    int max = 0;
+    while(n > 0){
+        int r = n % 10;
+        if(max < r){
+            max = r;
         }
-        n=n/10;
+        n /= 10;
     }
-    printf("%d",l);
+    printf("%d",max);
 }

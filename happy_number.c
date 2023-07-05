@@ -1,25 +1,31 @@
 #include<stdio.h>
-int main()
-{
-    int n,a,s,r;
-    scanf("%d",&n);
-    a=n;
-    while(a!=0)
-    {
-        s=0;
-        while(a!=0)
-        {
-            r=a%10;
-            s=s+r*r;
-            a=a/10;
-        }
-        if(s>9)
-        {
-            a=s;
-        }
+int squaresum(int n){
+    int sum = 0;
+    while(n > 0){
+        int digit = n % 10;
+        sum += digit * digit;
+        n /= 10;
     }
-    if(s==1 || s==7)
-    printf("True");
-    else
-    printf("False");
+    return sum;
+}
+int ishappy(int n){
+    while(n > 9){
+        n = squaresum(n);
+    }
+    if(n == 1 || n == 7){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    if(ishappy(n) == 1){
+        printf("True");
+    }
+    else{
+        printf("False");
+    }
 }

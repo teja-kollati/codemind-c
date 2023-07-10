@@ -1,19 +1,44 @@
 #include<stdio.h>
-#include<math.h>
-int main()
-{
-    int n,d,r,m,s=0;
-    scanf("%d",&n);
-    m=n;
-    while(m!=0)
-    {
-        d=log10(m)+1;
-        r=m%10;
-        m=m/10;
-        s=s+pow(r,d);
+int findcount(int n){
+    int count = 0;
+    while(n > 0){
+        count++;
+        n /= 10;
     }
-    if(s==n)
-    printf("True");
-    else
-    printf("False");
+    return count;
+}
+int power(int a, int b){
+    int num = 1;
+    while(b > 0){
+        num = num * a;
+        b--;
+    }
+    return num;
+}
+int isdisarium(int n){
+    int num = 0;
+    int temp = n;
+    int count = findcount(n);
+    while(temp > 0){
+        int digit = temp % 10;
+        num += power(digit,count);
+        count--;
+        temp /= 10;
+    }
+    if(num == n){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    if(isdisarium(n) == 1){
+        printf("True");
+    }
+    else{
+        printf("False");
+    }
 }

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 int reverse(int num) {
     int rev = 0;
     while (num > 0) {
@@ -11,17 +10,16 @@ int reverse(int num) {
 int isAdamNumber(int num) {
     int originalSquare = num * num;
     int reverseSquare = reverse(num) * reverse(num);
-    if(originalSquare == reverse(reverseSquare) == 1){
+    if(originalSquare == reverse(reverseSquare)){
         return 1;
     }
     else{
         return 0;
     }
 }
-
 int main() {
     int n;
-    scanf("%d", &n);
+    scanf("%d",&n);
     if (isAdamNumber(n) == 1)
         printf("True");
     else

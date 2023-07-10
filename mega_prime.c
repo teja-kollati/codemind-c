@@ -1,40 +1,40 @@
 #include<stdio.h>
-int main()
-{
-    int n,i,d,c1=0,c2=0,c3=0;
+int isprime(int n){
+    if(n <= 1){
+        return 0;
+    }
+    else if(n == 2){
+        return 1;
+    }
+    for(int i = 2; i < n/2 + 1; i++){
+        if(n % i == 0){
+            return 0;
+            break;
+        }
+    }
+    return 1;
+}
+int ismegaprime(int n){
+    if(isprime(n) == 0){
+        return 0;
+    }
+    while(n > 0){
+        int digit = n % 10;
+        if(isprime(digit) == 0){
+            return 0;
+            break;
+        }
+        n /= 10;
+    }
+    return 1;
+}
+int main(){
+    int n;
     scanf("%d",&n);
-    for(i=2;i<n;i++)
-    {
-        if(n%i==0)
-        {
-            c1++;
-        }
-    }
-    if(c1==0)
-    {
-        while(n!=0)
-        {
-            d=n%10;
-            for(i=2;i<d;i++)
-            {
-                if(d%i==0)
-                {
-                    c2++;
-                }
-            }
-            if(d==1)
-            {
-                c3++;
-            }
-            n=n/10;
-        }
-    }
-    if(c1==0 && c2==0 && c3==0)
-    {
+    if(ismegaprime(n) == 1){
         printf("Mega Prime");
     }
-    else
-    {
+    else{
         printf("Not Mega Prime");
     }
 }

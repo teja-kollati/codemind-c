@@ -6,13 +6,17 @@ int main(){
     for(int i = 0; i < n; i++){
         scanf("%d",&arr[i]);
     }
-    int count = 0;
+    int binary;
     for(int i = 0; i < n; i++){
-        if(arr[i] == 1 || arr[i] == 0){
-            count++;
+        if(arr[i] == 0 || arr[i] == 1){
+            binary = 1;
+        }
+        else{
+            binary = 0;
+            break;
         }
     }
-    if(count == n){
+    if(binary == 1){
         printf("True");
     }
     else{

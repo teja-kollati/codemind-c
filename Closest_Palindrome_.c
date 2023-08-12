@@ -25,7 +25,7 @@ int main(){
             break;
         }
     }
-    for(int i = n + 1; i < 10000; i++){
+    for(int i = n + 1; i <= 10000; i++){
         if(ispalindrome(i) == 1){
             right = i;
             break;
@@ -34,7 +34,7 @@ int main(){
     if((n - left) < (right - n)){
         printf("%d",left);
     }
-    else if((n - left) > (right - n)){
+    else if((right - n) < (n - left)){
         printf("%d",right);
     }
     else{
